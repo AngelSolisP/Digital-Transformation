@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contact Us</title>
+  <!-- Enlaza tu hoja de estilos -->
+  <link rel="stylesheet" href="fstyles.css">
+</head>
+<body>
+
+  <div class="container">
+    <form action="action_page.php" method="post">
+      
+      <!-- Campo para el nombre -->
+      <label for="fname">First Name</label>
+      <input type="text" id="fname" name="firstname" placeholder="Your name..">
+
+      <!-- Campo para el apellido -->
+      <label for="lname">Last Name</label>
+      <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+
+      <!-- Selector de país; se cargan opciones vía JavaScript -->
+      <label for="country">Country</label>
+      <select id="country" name="country">
+        <option value="">Loading countries...</option>
+      </select>
+
+      <!-- Área de texto para el asunto/mensaje -->
+      <label for="subject">Subject</label>
+      <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
+
+      <!-- Botón de envío -->
+      <input type="submit" value="Submit">
+
+    </form>
+  </div>
+
+  <script>
+    // Carga lista de países desde Rest Countries API
+    // Fuente: https://restcountries.com/v3.1/all?fields=name
+    fetch('https://restcountries.com/v3.1/all?fields=name')
+      .then(response => response.json())
+      .then(data => {
+        const countries = data
+          .map(country => country.name.common)
+          .sort();
+        const select = document.getElementById('country');
+        select.innerHTML = '<option value="">Select a country</option>';
+        countries.forEach(name => {
+          const option = document.createElement('option');
+          option.value = name.toLowerCase().replace(/ /g, '-');
+          option.textContent = name;
+          select.appendChild(option);
+        });
+      })
+      .catch(error => {
+        console.error('Error loading countries:', error);
+        document.getElementById('country').innerHTML =
+          '<option value="">Unable to load countries</option>';
+      });
+  </script>
+
+</body>
+</html>

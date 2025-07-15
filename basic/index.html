@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduBridge - Pitch Deck</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc; /* slate-50 */
+        }
+        .section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            padding: 4rem 1rem;
+        }
+        .card {
+            background-color: white;
+            border-radius: 1.5rem; /* increased border radius */
+            box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.15); /* softer, larger shadow */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 35px 60px -15px rgb(0 0 0 / 0.2);
+        }
+        .stat-card {
+             background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+             color: white;
+        }
+        .animated-entry {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        /* Staggered animation delays */
+        .delay-1 { animation-delay: 0.2s; }
+        .delay-2 { animation-delay: 0.4s; }
+        .delay-3 { animation-delay: 0.6s; }
+        .delay-4 { animation-delay: 0.8s; }
+
+        /* Custom style for video placeholder aspect ratio */
+        .video-placeholder-container {
+            position: relative;
+            width: 100%;
+            padding-top: 56.25%; /* 16:9 Aspect Ratio */
+            overflow: hidden; /* Ensures the content inside is clipped */
+        }
+        .video-placeholder-content {
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+        }
+    </style>
+</head>
+<body class="text-slate-800">
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 bg-white/80 backdrop-blur-sm shadow-sm z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex-shrink-0">
+                    <h1 class="text-2xl font-bold text-blue-600">EduBridge</h1>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#problem" class="text-slate-600 hover:text-blue-600 transition-colors">The Problem</a>
+                    <a href="#solution" class="text-slate-600 hover:text-blue-600 transition-colors">Our Solution</a>
+                    <a href="#demo" class="text-slate-600 hover:text-blue-600 transition-colors">Demo</a>
+                    <a href="#traction" class="text-slate-600 hover:text-blue-600 transition-colors">Traction</a>
+                    <a href="#ask" class="text-slate-600 font-bold hover:text-blue-600 transition-colors">The Ask</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="section bg-slate-100">
+        <div class="text-center max-w-4xl mx-auto">
+            <h1 class="animated-entry text-5xl md:text-7xl font-extrabold text-slate-900 tracking-tight">
+                <span class="block">EduBridge</span>
+                <span class="block text-blue-600 mt-2">Learning Without Borders.</span>
+            </h1>
+            <p class="animated-entry delay-1 mt-6 text-lg md:text-xl text-slate-600 max-w-2xl mx-auto">
+                A resilient digital learning platform for uninterrupted education in the face of global crises. We ensure every child can keep learning, no matter the circumstances.
+            </p>
+            <div class="animated-entry delay-2 mt-8">
+                <!-- Button was removed as per user request -->
+            </div>
+        </div>
+    </header>
+
+    <!-- The Problem -->
+    <section id="problem" class="section">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="animated-entry text-sm font-bold uppercase text-blue-500 tracking-widest">The Problem</h2>
+            <p class="animated-entry delay-1 mt-4 text-4xl md:text-5xl font-extrabold text-slate-900 max-w-4xl mx-auto">
+                Imagine: war, displacement, or pandemics shut down schools.
+            </p>
+            <p class="animated-entry delay-2 mt-6 text-lg text-slate-600 max-w-3xl mx-auto">
+                For millions of children, this isn't a hypothetical. It's reality. Traditional online learning fails them due to a lack of stable internet, electricity, or access to devices. Education, a fundamental right, becomes a casualty of crisis.
+            </p>
+            <div class="animated-entry delay-3 mt-12 grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                <div class="card p-8">
+                    <svg class="w-12 h-12 mx-auto text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636a9 9 0 010 12.728m-12.728 0a9 9 0 010-12.728m12.728 0L5.636 18.364m0-12.728L18.364 5.636"></path></svg>
+                    <h3 class="mt-4 text-xl font-bold">No Connectivity</h3>
+                    <p class="mt-2 text-slate-500">Most EdTech relies on stable, high-speed internet, which is a luxury in crisis zones.</p>
+                </div>
+                <div class="card p-8">
+                     <svg class="w-12 h-12 mx-auto text-yellow-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                    <h3 class="mt-4 text-xl font-bold">No Power</h3>
+                    <p class="mt-2 text-slate-500">Lack of reliable electricity makes charging and using digital devices nearly impossible.</p>
+                </div>
+                <div class="card p-8">
+                    <svg class="w-12 h-12 mx-auto text-indigo-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path></svg>
+                    <h3 class="mt-4 text-xl font-bold">Inaccessible Content</h3>
+                    <p class="mt-2 text-slate-500">Content is often not localized, language-appropriate, or designed for low-literacy users.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Solution -->
+    <section id="solution" class="section bg-slate-100">
+        <div class="container mx-auto px-6 text-center">
+             <h2 class="animated-entry text-sm font-bold uppercase text-blue-500 tracking-widest">The Solution</h2>
+            <p class="animated-entry delay-1 mt-4 text-4xl md:text-5xl font-extrabold text-slate-900 max-w-4xl mx-auto">
+                Introducing EduBridge: A Complete, Offline-First Learning Ecosystem.
+            </p>
+             <p class="animated-entry delay-2 mt-6 text-lg text-slate-600 max-w-3xl mx-auto">
+                This is not just another app—it's a lifeline for education, engineered for the most challenging environments on Earth.
+            </p>
+            <div class="animated-entry delay-3 mt-12 max-w-6xl mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-8 text-left">
+                <!-- Feature Cards... -->
+                <div class="card p-6 flex items-start space-x-4">
+                    <div class="flex-shrink-0 w-12 h-12 bg-blue-100 text-blue-600 rounded-lg flex items-center justify-center"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h.01"/><path d="M2 8.82a15 15 0 0 1 20 0"/><path d="M5 12.85a10.9 10.9 0 0 1 14 0"/><path d="m8.5 16.4-1 1.5"/><path d="M16.5 16.4l-1 1.5"/><path d="M12 18h.01"/></svg></div>
+                    <div>
+                        <h3 class="text-lg font-bold">Offline-First Design</h3>
+                        <p class="mt-1 text-slate-500 text-sm">Works entirely without internet. Content syncs via low-bandwidth mobile or Bluetooth mesh networks.</p>
+                    </div>
+                </div>
+                <div class="card p-6 flex items-start space-x-4">
+                    <div class="flex-shrink-0 w-12 h-12 bg-blue-100 text-blue-600 rounded-lg flex items-center justify-center"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v1"/><path d="M18.36 5.64l.71.71"/><path d="M21 12h-1"/><path d="M18.36 18.36l.71.71"/><path d="M12 21v-1"/><path d="M5.64 18.36l-.71.71"/><path d="M3 12H2"/><path d="M5.64 5.64l-.71.71"/><path d="M12 12a4.5 4.5 0 0 0-6.36 6.36C7.64 20.36 10 22 12 22s4.36-1.64 6.36-3.64A4.5 4.5 0 0 0 12 12Z"/></svg></div>
+                    <div>
+                        <h3 class="text-lg font-bold">Solar-Powered Hardware</h3>
+                        <p class="mt-1 text-slate-500 text-sm">Our rugged, low-cost tablets are paired with portable solar chargers to ensure learning never stops.</p>
+                    </div>
+                </div>
+                <div class="card p-6 flex items-start space-x-4">
+                    <div class="flex-shrink-0 w-12 h-12 bg-blue-100 text-blue-600 rounded-lg flex items-center justify-center"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7V5a2 2 0 0 1 2-2h2"/><path d="M17 3h2a2 2 0 0 1 2 2v2"/><path d="M21 17v2a2 2 0 0 1-2 2h-2"/><path d="M7 21H5a2 2 0 0 1-2-2v-2"/><path d="M12 8a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2"/><path d="M16 8a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2"/></svg></div>
+                    <div>
+                        <h3 class="text-lg font-bold">AI Adaptive Learning</h3>
+                        <p class="mt-1 text-slate-500 text-sm">Personalized lessons from K-12 to vocational skills that adapt to each student's unique pace and needs.</p>
+                    </div>
+                </div>
+                <div class="card p-6 flex items-start space-x-4">
+                    <div class="flex-shrink-0 w-12 h-12 bg-blue-100 text-blue-600 rounded-lg flex items-center justify-center"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 8 6 6"/><path d="m4 14 6-6 2-3"/><path d="M2 5h12"/><path d="M7 2h1"/><path d="m12 18 2 3 6-6-3-3-6 6Z"/><path d="M22 13h-9"/></svg></div>
+                    <div>
+                        <h3 class="text-lg font-bold">Multilingual & Voice-Based</h3>
+                        <p class="mt-1 text-slate-500 text-sm">Content delivered in local languages with voice support for low-literacy populations and younger children.</p>
+                    </div>
+                </div>
+                <div class="card p-6 flex items-start space-x-4">
+                    <div class="flex-shrink-0 w-12 h-12 bg-blue-100 text-blue-600 rounded-lg flex items-center justify-center"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 18a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2"/><path d="M12 14v4"/><path d="M21 14h-1"/><path d="M3 10h1"/><path d="M4 14h1"/><path d="m15 6-3-3-3 3"/><path d="M6 10h12"/><path d="M3 18h2a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2H3Z"/><path d="M17 18h2a2 2 0 0 0 2-2v-4a2 2 0 0 0-2-2h-1Z"/></svg></div>
+                    <div>
+                        <h3 class="text-lg font-bold">Peer-to-Peer Sharing</h3>
+                        <p class="mt-1 text-slate-500 text-sm">One device can "teach a village." Students share lessons and progress with others nearby, creating a network effect.</p>
+                    </div>
+                </div>
+                <div class="card p-6 flex items-start space-x-4">
+                    <div class="flex-shrink-0 w-12 h-12 bg-blue-100 text-blue-600 rounded-lg flex items-center justify-center"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/><path d="M12 18v-6"/><path d="m9 15 3-3 3 3"/></svg></div>
+                    <div>
+                        <h3 class="text-lg font-bold">Crisis-Ready Dashboard</h3>
+                        <p class="mt-1 text-slate-500 text-sm">Teachers and aid workers can track student progress and manage content with a dashboard that works even without the cloud.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- See It In Action (Video) -->
+<section id="demo" class="section">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="animated-entry text-sm font-bold uppercase text-blue-500 tracking-widest">Product Demo</h2>
+            <p class="animated-entry delay-1 mt-4 text-4xl md:text-5xl font-extrabold text-slate-900 max-w-4xl mx-auto">
+                See EduBridge in Action
+            </p>
+            <p class="animated-entry delay-2 mt-6 text-lg text-slate-600 max-w-3xl mx-auto">
+                Watch a brief overview of how our platform works offline, adapts to student needs, and empowers educators in the field.
+            </p>
+            <div class="animated-entry delay-3 mt-12 max-w-4xl mx-auto">
+                <div class="video-placeholder-container rounded-2xl shadow-2xl">
+                    <video class="video-placeholder-content rounded-2xl" controls>
+                        <source src="EduBridge_A_Shark_Tank_Pitch.mp4" type="video/mp4">
+                        
+                        Tu navegador no soporta la etiqueta de video.
+                    </video>
+                </div>
+                </div>
+        </div>
+    </section>
+
+
+    <!-- Traction Section -->
+    <section id="traction" class="section bg-slate-100">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="animated-entry text-sm font-bold uppercase text-blue-500 tracking-widest">Traction & Results</h2>
+            <p class="animated-entry delay-1 mt-4 text-4xl md:text-5xl font-extrabold text-slate-900 max-w-4xl mx-auto">
+                We're already making a measurable impact.
+            </p>
+            <p class="animated-entry delay-2 mt-6 text-lg text-slate-600 max-w-3xl mx-auto">
+                We've completed successful pilots with NGOs in refugee camps in Jordan and remote communities in Kenya. The data speaks for itself.
+            </p>
+            <div class="animated-entry delay-3 mt-12 max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="card p-8">
+                    <p class="text-5xl font-bold text-blue-600">200+</p>
+                    <p class="mt-2 text-xl font-semibold">Students Impacted</p>
+                    <p class="mt-1 text-slate-500">Across two continents in diverse crisis scenarios.</p>
+                </div>
+                <div class="stat-card card p-8 text-center">
+                    <p class="text-6xl font-extrabold">60%</p>
+                    <p class="mt-2 text-xl font-bold">Increase in Student Retention</p>
+                    <p class="mt-1 opacity-80">Compared to traditional emergency paper-based learning kits.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- The Ask -->
+    <section id="ask" class="section bg-blue-600 text-white">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="animated-entry text-sm font-bold uppercase text-blue-200 tracking-widest">The Ask</h2>
+            <p class="animated-entry delay-1 mt-4 text-4xl md:text-6xl font-extrabold max-w-4xl mx-auto">
+                $100,000 for 10% Equity
+            </p>
+            <div class="animated-entry delay-2 mt-12 max-w-5xl mx-auto w-full">
+                <div class="bg-white/20 rounded-2xl p-8 md:p-12">
+                    <h3 class="text-2xl font-bold text-center">Use of Funds</h3>
+                    <div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
+                        <div>
+                            <p class="font-bold text-lg">🚀 Scale Production</p>
+                            <p class="opacity-80 mt-1">Manufacture and deploy the next 5,000 EduBridge kits.</p>
+                        </div>
+                        <div>
+                            <p class="font-bold text-lg">🌍 Expand Operations</p>
+                            <p class="opacity-80 mt-1">Establish partnerships in 3 new countries facing educational disruption.</p>
+                        </div>
+                        <div>
+                            <p class="font-bold text-lg">💡 Enhance Software</p>
+                            <p class="opacity-80 mt-1">Further develop our AI, add more vocational courses, and expand language support.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <p class="animated-entry delay-3 mt-12 text-2xl font-light max-w-3xl mx-auto">
+                So, Sharks... who wants to join us and build the future of resilient education?
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-400 py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p class="font-bold text-white text-xl">EduBridge</p>
+            <p class="mt-2 text-sm">&copy; 2024 EduBridge Inc. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Simple Intersection Observer for animations
+        document.addEventListener("DOMContentLoaded", () => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('start-animation');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.animated-entry').forEach(el => {
+                observer.observe(el);
+            });
+        });
+    </script>
+
+</body>
+</html>

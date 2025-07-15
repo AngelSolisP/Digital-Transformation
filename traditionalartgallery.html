@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Traditional Art Gallery</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Karma">
+<style>
+body,h1,h2,h3,h4,h5,h6 {font-family: "Karma", sans-serif}
+.w3-bar-block .w3-bar-item {padding:20px}
+
+/* Added this style to make all gallery images uniform */
+.gallery-image {
+  width: 100%;
+  height: 250px; /* You can adjust this height */
+  object-fit: cover; /* This prevents images from stretching */
+}
+</style>
+</head>
+<body>
+
+<nav class="w3-sidebar w3-bar-block w3-card w3-top w3-xlarge w3-animate-left" style="display:none;z-index:2;width:40%;min-width:300px" id="mySidebar">
+  <a href="javascript:void(0)" onclick="w3_close()"
+  class="w3-bar-item w3-button">Close Menu</a>
+  <a href="#gallery" onclick="w3_close()" class="w3-bar-item w3-button">Gallery</a>
+  <a href="#about" onclick="w3_close()" class="w3-bar-item w3-button">About Us</a>
+  <a href="forms.html" onclick="w3_close()" class="w3-bar-item w3-button">Contact Us</a>
+</nav>
+
+<div class="w3-top">
+  <div class="w3-white w3-xlarge" style="max-width:1200px;margin:auto">
+    <div class="w3-button w3-padding-16 w3-left" onclick="w3_open()">☰</div>
+    <a href="forms.html" class="w3-right w3-padding-16" style="text-decoration:none; color:inherit;">
+      Contact Us
+    </a>
+    <div class="w3-center w3-padding-16">Traditional Art Gallery</div>
+  </div>
+</div>
+
+  
+  <div class="w3-container w3-padding-32 w3-center"> 
+    <h3>About The Art We Create</h3><br>
+    <img src="img/logo.png" alt="Logo for the Traditional Art Gallery" class="w3-image" style="display:block;margin:auto" width="800" height="533">
+    
+  </div>
+
+<div class="w3-main w3-content w3-padding" style="max-width:1200px;margin-top:100px" id="gallery">
+
+  <div class="w3-row-padding w3-padding-16 w3-center" id="art">
+    <div class="w3-quarter">
+      <img src="img/thebird.jpg" alt="Realistic painting of a bird on a branch" class="gallery-image">
+      <h3>Ela Ve (The Bird)</h3>
+      <p>A detailed exploration of avifauna, capturing the essence and stillness of the moment. Artist: Mafi.</p>
+    </div>
+    <div class="w3-quarter">
+      <img src="img/madness.jpeg" alt="Abstract work representing the concept of madness" class="gallery-image">
+      <h3>Path to Madness</h3>
+      <p>A piece that explores the complexities of the mind through expressionist strokes. Artist: Mafi.</p>
+    </div>
+    <div class="w3-quarter">
+      <img src="img/selfportrtait.jpeg" alt="Self-portrait of the artist" class="gallery-image">
+      <h3>Self-Portrait</h3>
+      <p>A personal introspection, where light and shadow define the identity of being.</p>
+    </div>
+    <div class="w3-quarter">
+      <img src="img/sadbro.jpg" alt="Portrait of a man with a melancholic expression" class="gallery-image">
+      <h3>Melancholy</h3>
+      <p>The capture of a universal emotion. The portrait reflects a moment of deep contemplation.</p>
+    </div>
+  </div>
+  
+  <div class="w3-row-padding w3-padding-16 w3-center">
+    <div class="w3-quarter">
+      <img src="img/mike.jpg" alt="Portrait of a man named Mike" class="gallery-image">
+      <h3>Portrait of Mike</h3>
+      <p>A character study. Every line on his face tells a story, captured with mastery.</p>
+    </div>
+    <div class="w3-quarter">
+      <img src="img/camera.jpeg" alt="Painting of an old camera" class="gallery-image">
+      <h3>The Capture of Time</h3>
+      <p>A tribute to the instruments that freeze reality. A still life of a classic camera.</p>
+    </div>
+    <div class="w3-quarter">
+      <img src="img/payaso.jpg" alt="Painting of a clown with a deep gaze" class="gallery-image">
+      <h3>Face of Fiction</h3>
+      <p>Behind the makeup and the painted smile hides a universe of untold stories.</p>
+    </div>
+    <div class="w3-quarter">
+      <img src="img/cuchillo.jpeg" alt="Still life with a knife and other elements" class="gallery-image">
+      <h3>Still Life with an Edge</h3>
+      <p>A play of tensions between the everyday and the dangerous. The beauty in simple objects.</p>
+    </div>
+  </div>
+  
+  <hr id="about">
+
+  <div class="w3-container w3-padding-32">
+    <h4><b>Who We Are</b></h4>
+    <h6><i>With a Passion for the Genuine</i></h6>
+    <p>We are a collective of artists dedicated to exploring the universe through traditional techniques. With a passionate heart for creation and a deep interest in the human condition, we seek to share our world with you. We believe that each work is a dialogue, a connection. We strive to create pieces that not only decorate a space, but also provoke reflection and endure in memory.</p>
+    </div>
+  <hr>
+  
+</div>
+
+<script>
+// Script to open and close sidebar
+function w3_open() {
+  document.getElementById("mySidebar").style.display = "block";
+}
+ 
+function w3_close() {
+  document.getElementById("mySidebar").style.display = "none";
+}
+</script>
+
+</body>
+</html>
+```

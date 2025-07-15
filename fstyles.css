@@ -1,0 +1,37 @@
+/* styles.css */
+
+/* Estilos para campos de texto, select y textarea */
+input[type="text"],
+select,
+textarea {
+  width: 100%;                  /* Ocupan todo el ancho del contenedor */
+  padding: 12px;                /* Relleno interior */
+  border: 1px solid #5f738d;    /* Borde gris */
+  border-radius: 4px;           /* Bordes redondeados */
+  box-sizing: border-box;       /* Incluye padding en el ancho total */
+  margin-top: 6px;              /* Espacio superior entre elementos */
+  margin-bottom: 16px;          /* Espacio inferior entre elementos */
+  resize: vertical;             /* Solo redimensionable verticalmente */
+}
+
+/* Estilos para el botón de envío */
+input[type="submit"] {
+  background-color: #06316e;    /* Fondo azul oscuro */
+  color: white;                 /* Texto blanco */
+  padding: 12px 20px;           /* Relleno interno */
+  border: none;                 /* Sin borde */
+  border-radius: 4px;           /* Bordes redondeados */
+  cursor: pointer;              /* Puntero al pasar el ratón */
+}
+
+/* Hover: efecto al poner el ratón sobre el botón */
+input[type="submit"]:hover {
+  background-color: #164771;    /* Azul más claro al pasar el ratón */
+}
+
+/* Contenedor del formulario */
+.container {
+  border-radius: 5px;           /* Bordes del contenedor */
+  background-color: #f2f2f2;    /* Fondo gris claro */
+  padding: 20px;                /* Relleno interior */
+}
