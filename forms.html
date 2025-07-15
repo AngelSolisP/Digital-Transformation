@@ -4,62 +4,111 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Contact Us</title>
-  <!-- Enlaza tu hoja de estilos -->
+
+  <!-- W3.CSS y fuente Karma -->
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Karma">
+
+  <!-- Tu CSS local -->
   <link rel="stylesheet" href="fstyles.css">
+
+  <style>
+    body, h1, h2, h3, h4, h5, h6 { font-family: "Karma", sans-serif; }
+    .w3-bar-block .w3-bar-item { padding: 20px; }
+  </style>
 </head>
 <body>
 
-  <div class="container">
-    <form action="action_page.php" method="post">
-      
-      <!-- Campo para el nombre -->
-      <label for="fname">First Name</label>
-      <input type="text" id="fname" name="firstname" placeholder="Your name..">
+  <!-- Sidebar -->
+  <nav class="w3-sidebar w3-bar-block w3-card w3-top w3-xlarge w3-animate-left"
+       style="display:none; z-index:2; width:40%; min-width:300px"
+       id="mySidebar">
+    <a href="javascript:void(0)" onclick="w3_close()"
+       class="w3-bar-item w3-button">Close Menu</a>
+    <a href="traditionalartgallery.html"w3_close()" class="w3-bar-item w3-button">
+      Traditional Art Gallery
+    
+    </a>
+  </nav>
 
-      <!-- Campo para el apellido -->
-      <label for="lname">Last Name</label>
-      <input type="text" id="lname" name="lastname" placeholder="Your last name..">
-
-      <!-- Selector de país; se cargan opciones vía JavaScript -->
-      <label for="country">Country</label>
-      <select id="country" name="country">
-        <option value="">Loading countries...</option>
-      </select>
-
-      <!-- Área de texto para el asunto/mensaje -->
-      <label for="subject">Subject</label>
-      <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
-
-      <!-- Botón de envío -->
-      <input type="submit" value="Submit">
-
-    </form>
+  <!-- Top bar fija -->
+  <div class="w3-top">
+    <div class="w3-white w3-xlarge" style="max-width:1200px; margin:auto;">
+      <div class="w3-button w3-padding-16 w3-left" onclick="w3_open()">☰</div>
+      <a href="forms.html" class="w3-right w3-padding-16"
+         style="text-decoration:none; color:inherit;">
+        Contact Us
+      </a>
+      <div class="w3-center w3-padding-16">Traditional Art Gallery</div>
+    </div>
   </div>
 
+  <!-- Separador para que el formulario no quede oculto -->
+  <div style="margin-top:100px;">
+
+    <!-- Contenedor del formulario -->
+    <div class="container">
+      <!-- Añadimos id al form para referenciarlo desde JS -->
+      <form id="contactForm" action="action_page.php" method="post">
+
+        <label for="fname">First Name</label>
+        <input type="text" id="fname" name="firstname" placeholder="Your name..">
+
+        <label for="lname">Last Name</label>
+        <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+
+        <label for="country">Country</label>
+        <select id="country" name="country">
+          <option value="">Loading countries...</option>
+        </select>
+
+        <label for="subject">Subject</label>
+        <textarea id="subject" name="subject"
+                  placeholder="Write something.." style="height:200px"></textarea>
+
+        <input type="submit" value="Submit">
+
+      </form>
+    </div>
+
+  </div><!-- /margin-top -->
+
   <script>
-    // Carga lista de países desde Rest Countries API
-    // Fuente: https://restcountries.com/v3.1/all?fields=name
+    // Abrir y cerrar sidebar
+    function w3_open() {
+      document.getElementById("mySidebar").style.display = "block";
+    }
+    function w3_close() {
+      document.getElementById("mySidebar").style.display = "none";
+    }
+
+    // Carga lista de países
     fetch('https://restcountries.com/v3.1/all?fields=name')
-      .then(response => response.json())
+      .then(resp => resp.json())
       .then(data => {
-        const countries = data
-          .map(country => country.name.common)
-          .sort();
-        const select = document.getElementById('country');
-        select.innerHTML = '<option value="">Select a country</option>';
+        const countries = data.map(c => c.name.common).sort();
+        const sel = document.getElementById('country');
+        sel.innerHTML = '<option value="">Select a country</option>';
         countries.forEach(name => {
-          const option = document.createElement('option');
-          option.value = name.toLowerCase().replace(/ /g, '-');
-          option.textContent = name;
-          select.appendChild(option);
+          const opt = document.createElement('option');
+          opt.value = name.toLowerCase().replace(/ /g, '-');
+          opt.textContent = name;
+          sel.appendChild(opt);
         });
       })
-      .catch(error => {
-        console.error('Error loading countries:', error);
+      .catch(err => {
+        console.error('Error loading countries:', err);
         document.getElementById('country').innerHTML =
           '<option value="">Unable to load countries</option>';
       });
-  </script>
 
+    // Al enviar el formulario, mostrar alerta y luego permitir el envío
+    document.getElementById('contactForm')
+      .addEventListener('submit', function(e) {
+        alert('SUBMITTED');
+        // Si quisieras evitar el envío real, descomenta la línea siguiente:
+        // e.preventDefault();
+      });
+  </script>
 </body>
 </html>
