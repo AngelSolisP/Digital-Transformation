@@ -1,0 +1,6 @@
+C:\Users\angel\OneDrive\Escritorio\limpiar\OntarioTech\Digital Transformation\mobile2.0\PrivacyMeter.Console\obj\Debug\net9.0\PrivacyMeter.Console.csproj.AssemblyReference.cache
+C:\Users\angel\OneDrive\Escritorio\limpiar\OntarioTech\Digital Transformation\mobile2.0\PrivacyMeter.Console\obj\Debug\net9.0\PrivacyMeter.Console.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\angel\OneDrive\Escritorio\limpiar\OntarioTech\Digital Transformation\mobile2.0\PrivacyMeter.Console\obj\Debug\net9.0\PrivacyMeter.Console.AssemblyInfoInputs.cache
+C:\Users\angel\OneDrive\Escritorio\limpiar\OntarioTech\Digital Transformation\mobile2.0\PrivacyMeter.Console\obj\Debug\net9.0\PrivacyMeter.Console.AssemblyInfo.cs
+C:\Users\angel\OneDrive\Escritorio\limpiar\OntarioTech\Digital Transformation\mobile2.0\PrivacyMeter.Console\obj\Debug\net9.0\PrivacyMeter.Console.csproj.CoreCompileInputs.cache
+C:\Users\angel\OneDrive\Escritorio\limpiar\OntarioTech\Digital Transformation\mobile2.0\PrivacyMeter.Console\obj\Debug\net9.0\PrivacyMeter.Console.sourcelink.json

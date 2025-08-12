@@ -1,0 +1,7 @@
+C:\Users\angel\OneDrive\Escritorio\limpiar\OntarioTech\Digital Transformation\PrivacyMeter.Desktop_Starter_Clean\PrivacyMeter.Desktop\obj\Debug\net8.0-windows\PrivacyMeter.Desktop.csproj.AssemblyReference.cache
+C:\Users\angel\OneDrive\Escritorio\limpiar\OntarioTech\Digital Transformation\PrivacyMeter.Desktop_Starter_Clean\PrivacyMeter.Desktop\obj\Debug\net8.0-windows\MainWindow.baml
+C:\Users\angel\OneDrive\Escritorio\limpiar\OntarioTech\Digital Transformation\PrivacyMeter.Desktop_Starter_Clean\PrivacyMeter.Desktop\obj\Debug\net8.0-windows\MainWindow.g.cs
+C:\Users\angel\OneDrive\Escritorio\limpiar\OntarioTech\Digital Transformation\PrivacyMeter.Desktop_Starter_Clean\PrivacyMeter.Desktop\obj\Debug\net8.0-windows\App.g.cs
+C:\Users\angel\OneDrive\Escritorio\limpiar\OntarioTech\Digital Transformation\PrivacyMeter.Desktop_Starter_Clean\PrivacyMeter.Desktop\obj\Debug\net8.0-windows\GeneratedInternalTypeHelper.g.cs
+C:\Users\angel\OneDrive\Escritorio\limpiar\OntarioTech\Digital Transformation\PrivacyMeter.Desktop_Starter_Clean\PrivacyMeter.Desktop\obj\Debug\net8.0-windows\PrivacyMeter.Desktop_MarkupCompile.cache
+C:\Users\angel\OneDrive\Escritorio\limpiar\OntarioTech\Digital Transformation\PrivacyMeter.Desktop_Starter_Clean\PrivacyMeter.Desktop\obj\Debug\net8.0-windows\PrivacyMeter.Desktop_MarkupCompile.lref

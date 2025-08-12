@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Truth Unravels</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Courier+Prime:wght@400;700&display=swap');
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0d1117;
+            color: #c9d1d9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+            flex-direction: column;
+            padding: 1rem;
+        }
+
+        .container {
+            max-width: 800px;
+            width: 100%;
+            background-color: #161b22;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 10px 20px rgba(0, 0, 0, 0.2);
+            position: relative;
+        }
+
+        /* All screens start as hidden by default */
+        .screen {
+            display: none;
+        }
+        
+        .screen.active {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .hacker-screen.active {
+            display: block;
+        }
+
+        .hacker-screen {
+            font-family: 'Courier Prime', monospace;
+            white-space: pre-wrap;
+            line-height: 1.5;
+            min-height: 400px;
+            color: #38bdf8;
+            overflow: auto;
+            position: relative;
+        }
+
+        .hacker-screen span.green { color: #34d399; }
+        .hacker-screen span.yellow { color: #facc15; }
+        .hacker-screen span.red { color: #ef4444; }
+
+        .blinking-cursor {
+            font-weight: 700;
+            animation: blink 1s step-end infinite;
+        }
+
+        @keyframes blink {
+            50% { opacity: 0; }
+        }
+
+        .chat-container {
+            gap: 1.5rem;
+        }
+
+        .chat-message {
+            display: flex;
+            flex-direction: column;
+            max-width: 65%; /* Adjusted max-width for better proportion */
+            padding: 0.75rem 1.25rem;
+            border-radius: 1.5rem;
+            position: relative;
+        }
+        .chat-message.right {
+            align-self: flex-end;
+            background-color: #1e40af;
+            color: #e2e8f0;
+            border-top-right-radius: 0.5rem;
+        }
+        .chat-message.left {
+            align-self: flex-start;
+            background-color: #374151;
+            color: #e2e8f0;
+            border-top-left-radius: 0.5rem;
+        }
+
+        .chat-name {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: #9ca3af;
+            margin-bottom: 0.25rem;
+        }
+
+        /* New styles to control image size - NO BLUR */
+        .redacted-image {
+            filter: none; /* Removed blur and other filters */
+            width: auto;
+            max-width: 256px; /* Limit max-width */
+            height: auto;
+            max-height: 256px; /* Limit max-height */
+            object-fit: cover;
+            border-radius: 0.5rem;
+        }
+
+        .map-container {
+            width: 100%;
+            aspect-ratio: 16/9;
+            background-color: #000;
+            border-radius: 12px;
+            overflow: hidden;
+            position: relative;
+        }
+        .map-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transform: scale(1);
+            transition: transform 8s ease-in-out;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        .map-container.zoomed .map-image {
+            transform: scale(2.5);
+            transition: transform 8s ease-in-out;
+        }
+        .pin {
+            position: absolute;
+            width: 24px;
+            height: 24px;
+            background-color: red;
+            border-radius: 50%;
+            transform: translate(-50%, -100%);
+            box-shadow: 0 0 10px red;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+        .map-container.pin-visible .pin {
+            opacity: 1;
+        }
+
+        .reveal-screen {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #0d1117;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            text-align: center;
+            opacity: 0;
+            transition: opacity 1s;
+        }
+        .reveal-screen.visible {
+            opacity: 1;
+        }
+        
+        /* GLITCH EFFECT CSS */
+        .glitch {
+            position: relative;
+            color: white;
+            text-shadow: 0 0 10px #fff;
+        }
+
+        .glitch::before, .glitch::after {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .glitch-active {
+            animation: glitch-anim 2s infinite linear alternate, glitch-anim-2 0.8s infinite linear alternate;
+        }
+
+        .glitch-active::before {
+            left: 2px;
+            text-shadow: -2px 0 red;
+            background-color: #0d1117;
+            animation: glitch-anim 2s infinite linear alternate, glitch-anim-2 0.8s infinite linear alternate;
+        }
+
+        .glitch-active::after {
+            left: -2px;
+            text-shadow: -2px 0 cyan;
+            background-color: #0d1117;
+            animation: glitch-anim 2s infinite linear alternate, glitch-anim-2 0.8s infinite linear alternate;
+        }
+
+        @keyframes glitch-anim {
+            0% { clip-path: inset(21% 0 76% 0); }
+            10% { clip-path: inset(5% 0 85% 0); }
+            20% { clip-path: inset(42% 0 16% 0); }
+            30% { clip-path: inset(80% 0 15% 0); }
+            40% { clip-path: inset(7% 0 6% 0); }
+            50% { clip-path: inset(45% 0 25% 0); }
+            60% { clip-path: inset(2% 0 9% 0); }
+            70% { clip-path: inset(77% 0 12% 0); }
+            80% { clip-path: inset(62% 0 13% 0); }
+            90% { clip-path: inset(11% 0 28% 0); }
+            100% { clip-path: inset(58% 0 14% 0); }
+        }
+
+        @keyframes glitch-anim-2 {
+            0% { transform: translate(-2px, -2px) }
+            10% { transform: translate(-1px, 1px) }
+            20% { transform: translate(2px, 2px) }
+            30% { transform: translate(1px, -1px) }
+            40% { transform: translate(-2px, 2px) }
+            50% { transform: translate(-1px, -1px) }
+            60% { transform: translate(2px, 1px) }
+            70% { transform: translate(1px, 2px) }
+            80% { transform: translate(-1px, 1px) }
+            90% { transform: translate(2px, -2px) }
+            100% { transform: translate(1px, 2px) }
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-200 flex flex-col items-center justify-center min-h-screen p-4">
+
+    <!-- Main container for the simulation -->
+    <div id="main-container" class="container">
+        
+        <!-- Initial hacking screen -->
+        <div id="hacker-screen" class="hacker-screen screen active">
+            <!-- Console content will be generated by JavaScript -->
+        </div>
+
+        <!-- Restored conversation container -->
+        <div id="chat-container" class="chat-container screen">
+            <h2 class="text-2xl font-bold text-center mb-4">Restored Conversation: SilentWatcher01</h2>
+            
+            <div class="chat-message left">
+                <span class="chat-name">SilentWatcher01</span>
+                <span>"If you won't be with me, I'll make sure no one will."</span>
+            </div>
+
+            <div class="chat-message left">
+                <span class="chat-name">SilentWatcher01</span>
+                <span>"You're mine, Valeria. Always."</span>
+            </div>
+
+            <div class="chat-message left">
+                <span class="chat-name">SilentWatcher01</span>
+                <div class="w-full h-auto mt-2">
+                    <!-- Updated image with the user-provided file -->
+                    <img class="redacted-image w-full" src="img/mafistalk.jpg" alt="A blurry, distorted image of Valeria.">
+                </div>
+            </div>
+        </div>
+
+        <!-- Map container for the IP trace -->
+        <div id="map-container" class="map-container screen">
+            <img id="map-image" class="map-image" src="https://placehold.co/800x450/000/000?text=LOADING+SATELLITE+MAP..." alt="Satellite map.">
+            <div id="ip-pin" class="pin" style="top: 50%; left: 50%;"></div>
+        </div>
+
+        <!-- Final reveal screen -->
+        <div id="reveal-screen" class="reveal-screen screen">
+            <p id="reveal-text" class="text-4xl font-bold mb-4 glitch" data-text=""></p>
+        </div>
+
+    </div>
+
+    <script>
+        // Script logic
+        document.addEventListener("DOMContentLoaded", () => {
+            const hackerScreen = document.getElementById('hacker-screen');
+            const chatContainer = document.getElementById('chat-container');
+            const mapContainer = document.getElementById('map-container');
+            const revealScreen = document.getElementById('reveal-screen');
+            const revealText = document.getElementById('reveal-text');
+            const mapImage = document.getElementById('map-image');
+            const ipPin = document.getElementById('ip-pin');
+
+            const hackerText = [
+                'Initializing data recovery system...',
+                'Connecting to Valeria\'s cloud backup...',
+                'Session authentication... <span class="green">SUCCESS</span>',
+                'Searching for deleted files...',
+                'Recovering message fragments...',
+                'Reconstructing "SilentWatcher01" conversation...',
+                'Analyzing metadata... <span class="yellow">WARNING: Corrupted attachments.</span>',
+                'Restoration complete. Displaying results...'
+            ];
+
+            let textIndex = 0;
+            let cursor = '<span class="blinking-cursor">_</span>';
+
+            // Helper function to switch screens
+            function showScreen(screenToShow) {
+                const allScreens = [hackerScreen, chatContainer, mapContainer, revealScreen];
+                allScreens.forEach(screen => {
+                    screen.classList.remove('active');
+                });
+                if (screenToShow) {
+                    screenToShow.classList.add('active');
+                }
+            }
+
+            // Function to type text on the hacking screen
+            function typeHackerText() {
+                showScreen(hackerScreen);
+                if (textIndex < hackerText.length) {
+                    hackerScreen.innerHTML += hackerText[textIndex] + '<br>' + cursor;
+                    hackerScreen.scrollTop = hackerScreen.scrollHeight; // Auto scroll
+                    textIndex++;
+                    setTimeout(typeHackerText, 1500); // 1.5 seconds between lines
+                } else {
+                    // After typing all text, move to the next phase
+                    setTimeout(() => {
+                        showScreen(chatContainer);
+                        startMapTrace();
+                    }, 2000);
+                }
+            }
+
+            // Function to start the IP trace
+            function startMapTrace() {
+                setTimeout(() => {
+                    showScreen(mapContainer);
+
+                    // Small delay before the zoom animation
+                    setTimeout(() => {
+                        mapContainer.classList.add('zoomed');
+                    }, 500);
+
+                    // Small delay before dropping the pin
+                    setTimeout(() => {
+                        mapContainer.classList.add('pin-visible');
+                    }, 7000); // The pin appears almost at the end of the zoom
+
+                    // After the trace, show the final reveal
+                    setTimeout(() => {
+                        showFinalReveal();
+                    }, 9000);
+                }, 4000); // 4 seconds after the conversation appears
+            }
+
+            // Function to show the final text and glitch effect
+            function showFinalReveal() {
+                // Ensure map container is removed from screen before showing the reveal
+                showScreen(null); // Hide all screens
+                
+                const finalMessage = 'THE FINAL LOCATION IS NOT SHANGHAI! <br><br>THE LOCATION IS: <span class="text-red-500">ONTARIO TECH UNIVERSITY.</span>';
+
+                // Set data-text attribute for the pseudo-elements
+                revealText.setAttribute('data-text', 'THE FINAL LOCATION IS NOT SHANGHAI! THE LOCATION IS: ONTARIO TECH UNIVERSITY.');
+                
+                // Add the glitch class to start the animation
+                revealText.classList.add('glitch-active');
+
+                // A small delay to ensure content loads before the animation
+                setTimeout(() => {
+                    revealScreen.classList.add('visible');
+                    revealScreen.classList.add('active'); // Show the reveal screen
+                    revealText.innerHTML = finalMessage; // Reveal the text after the glitch starts
+                }, 50);
+            }
+
+            // Start the simulation on page load
+            typeHackerText();
+        });
+    </script>
+</body>
+</html>

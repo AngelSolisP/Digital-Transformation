@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Predicción de Sospechoso</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Suspect Prediction</title>
   <style>
     body { font-family: sans-serif; max-width: 600px; margin: 2rem auto; }
     label { display: block; margin-top: 1rem; }
@@ -13,30 +13,30 @@
   </style>
 </head>
 <body>
-  <h1>Predicción de Sospechoso</h1>
+  <h1>Suspect Prediction</h1>
   <form id="predict-form">
-    <label for="Edad">Edad:
+    <label for="Edad">Age:
       <input type="number" id="Edad" name="Edad" required />
     </label>
-    <label for="ArrestosPrevios">Arrestos Previos:
+    <label for="ArrestosPrevios">Previous Arrests:
       <input type="number" id="ArrestosPrevios" name="ArrestosPrevios" required />
     </label>
-    <label for="FaltasTrabajo">Faltas de Trabajo:
+    <label for="FaltasTrabajo">Work Absences:
       <input type="number" id="FaltasTrabajo" name="FaltasTrabajo" required />
     </label>
-    <label for="NivelEducacion">Nivel de Educación (años):
+    <label for="NivelEducacion">Education Level (years):
       <input type="number" id="NivelEducacion" name="NivelEducacion" required />
     </label>
-    <label for="Multas">Número de Multas:
+    <label for="Multas">Number of Fines:
       <input type="number" id="Multas" name="Multas" required />
     </label>
-    <label for="AntecedentesFamiliares">Antecedentes Familiares (0 o 1):
+    <label for="AntecedentesFamiliares">Family Criminal History (0 or 1):
       <input type="number" id="AntecedentesFamiliares" name="AntecedentesFamiliares" min="0" max="1" required />
     </label>
-    <label for="HorasFueraCasa">Horas Fuera de Casa por Día:
+    <label for="HorasFueraCasa">Hours Spent Outside Home per Day:
       <input type="number" id="HorasFueraCasa" name="HorasFueraCasa" required />
     </label>
-    <button type="submit">Predecir</button>
+    <button type="submit">Predict</button>
   </form>
 
   <div id="result"></div>
@@ -45,7 +45,6 @@
     document.getElementById('predict-form').addEventListener('submit', async function(e) {
       e.preventDefault();
 
-      // Recolectar valores del formulario
       const data = {
         Edad: Number(document.getElementById('Edad').value),
         ArrestosPrevios: Number(document.getElementById('ArrestosPrevios').value),
@@ -57,7 +56,6 @@
       };
 
       try {
-        // Enviar al backend
         const response = await fetch('/predict', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
@@ -67,12 +65,9 @@
         if (!response.ok) throw new Error(`Error ${response.status}`);
 
         const result = await response.json();
-        // Asume que el JSON de respuesta tiene { prediction: "Sospechoso" } o similar
-        document.getElementById('result').textContent =
-          `Resultado: ${result.prediction}`;
+        document.getElementById('result').textContent = `Result: ${result.prediction}`;
       } catch (err) {
-        document.getElementById('result').textContent =
-          `Hubo un error: ${err.message}`;
+        document.getElementById('result').textContent = `Error: ${err.message}`;
       }
     });
   </script>
