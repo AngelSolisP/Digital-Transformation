@@ -13,6 +13,7 @@ C:\Users\angel\OneDrive\Escritorio\limpiar\OntarioTech\Digital Transformation\Pr
 C:\Users\angel\OneDrive\Escritorio\limpiar\OntarioTech\Digital Transformation\PrivacyMeter.Desktop_Starter_Clean\PrivacyMeter.Desktop\bin\Debug\net8.0-windows\PrivacyMeter.Desktop.dll
 C:\Users\angel\OneDrive\Escritorio\limpiar\OntarioTech\Digital Transformation\PrivacyMeter.Desktop_Starter_Clean\PrivacyMeter.Desktop\bin\Debug\net8.0-windows\PrivacyMeter.Desktop.pdb
 C:\Users\angel\OneDrive\Escritorio\limpiar\OntarioTech\Digital Transformation\PrivacyMeter.Desktop_Starter_Clean\PrivacyMeter.Desktop\bin\Debug\net8.0-windows\CommunityToolkit.Mvvm.dll
+C:\Users\angel\OneDrive\Escritorio\limpiar\OntarioTech\Digital Transformation\PrivacyMeter.Desktop_Starter_Clean\PrivacyMeter.Desktop\bin\Debug\net8.0-windows\LiteDB.dll
 C:\Users\angel\OneDrive\Escritorio\limpiar\OntarioTech\Digital Transformation\PrivacyMeter.Desktop_Starter_Clean\PrivacyMeter.Desktop\bin\Debug\net8.0-windows\Microsoft.Diagnostics.FastSerialization.dll
 C:\Users\angel\OneDrive\Escritorio\limpiar\OntarioTech\Digital Transformation\PrivacyMeter.Desktop_Starter_Clean\PrivacyMeter.Desktop\bin\Debug\net8.0-windows\Microsoft.Diagnostics.Tracing.TraceEvent.dll
 C:\Users\angel\OneDrive\Escritorio\limpiar\OntarioTech\Digital Transformation\PrivacyMeter.Desktop_Starter_Clean\PrivacyMeter.Desktop\obj\Debug\net8.0-windows\PrivacyMeter.Desktop.csproj.AssemblyReference.cache
