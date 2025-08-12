@@ -1,0 +1,38 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.2.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "mobile2.0", "mobile2.0", "{F081D33E-D532-CFA6-C593-A3EE485589EB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PrivacyMeter.Desktop_Starter_Clean", "PrivacyMeter.Desktop_Starter_Clean", "{C70E11B4-652A-946B-C999-5AE55F554D35}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrivacyMeter.Console", "mobile2.0\PrivacyMeter.Console\PrivacyMeter.Console.csproj", "{D120D3D4-101B-6600-9B29-88CA844C5E0E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrivacyMeter.Desktop", "PrivacyMeter.Desktop_Starter_Clean\PrivacyMeter.Desktop\PrivacyMeter.Desktop.csproj", "{BC29A8DA-28B6-ECC8-2266-BBB2AD80A321}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D120D3D4-101B-6600-9B29-88CA844C5E0E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D120D3D4-101B-6600-9B29-88CA844C5E0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D120D3D4-101B-6600-9B29-88CA844C5E0E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D120D3D4-101B-6600-9B29-88CA844C5E0E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BC29A8DA-28B6-ECC8-2266-BBB2AD80A321}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BC29A8DA-28B6-ECC8-2266-BBB2AD80A321}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BC29A8DA-28B6-ECC8-2266-BBB2AD80A321}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BC29A8DA-28B6-ECC8-2266-BBB2AD80A321}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{D120D3D4-101B-6600-9B29-88CA844C5E0E} = {F081D33E-D532-CFA6-C593-A3EE485589EB}
+		{BC29A8DA-28B6-ECC8-2266-BBB2AD80A321} = {C70E11B4-652A-946B-C999-5AE55F554D35}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {90D22D9E-7C60-43C2-B338-BE64C84CA63E}
+	EndGlobalSection
+EndGlobal

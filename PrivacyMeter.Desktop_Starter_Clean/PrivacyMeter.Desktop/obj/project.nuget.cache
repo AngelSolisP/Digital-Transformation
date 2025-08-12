@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "v0H1E5Q0oME=",
+  "dgSpecHash": "iz6MxBGHSQ0=",
   "success": true,
   "projectFilePath": "C:\\Users\\angel\\OneDrive\\Escritorio\\limpiar\\OntarioTech\\Digital Transformation\\PrivacyMeter.Desktop_Starter_Clean\\PrivacyMeter.Desktop\\PrivacyMeter.Desktop.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\angel\\.nuget\\packages\\communitytoolkit.mvvm\\8.2.2\\communitytoolkit.mvvm.8.2.2.nupkg.sha512",
+    "C:\\Users\\angel\\.nuget\\packages\\litedb\\5.0.17\\litedb.5.0.17.nupkg.sha512",
     "C:\\Users\\angel\\.nuget\\packages\\microsoft.diagnostics.tracing.traceevent\\3.1.8\\microsoft.diagnostics.tracing.traceevent.3.1.8.nupkg.sha512",
     "C:\\Users\\angel\\.nuget\\packages\\microsoft.netcore.platforms\\2.0.0\\microsoft.netcore.platforms.2.0.0.nupkg.sha512",
     "C:\\Users\\angel\\.nuget\\packages\\microsoft.win32.registry\\4.4.0\\microsoft.win32.registry.4.4.0.nupkg.sha512",

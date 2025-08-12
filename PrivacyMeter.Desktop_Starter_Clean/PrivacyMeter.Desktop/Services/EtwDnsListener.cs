@@ -3,7 +3,7 @@ using System;
 using System.Threading.Tasks;
 using Microsoft.Diagnostics.Tracing;
 using Microsoft.Diagnostics.Tracing.Session;
-using Microsoft.Diagnostics.Tracing.Parsers; // <-- IMPORTANTE
+using Microsoft.Diagnostics.Tracing.Parsers; // para source.Dynamic
 
 namespace PrivacyMeter.Desktop.Services
 {
@@ -16,7 +16,7 @@ namespace PrivacyMeter.Desktop.Services
         // DNS Client provider: {1c95126e-7eea-49a9-a3fe-a378b03ddb4d}
         private static readonly Guid DnsClientProvider = new("1c95126e-7eea-49a9-a3fe-a378b03ddb4d");
 
-        public event Action<DateTime, int, string>? OnDns; // ts, pid, domain
+        public event Action<DateTime,int,string>? OnDns; // ts, pid, domain
 
         public void Start()
         {
@@ -30,15 +30,12 @@ namespace PrivacyMeter.Desktop.Services
             {
                 using var source = new ETWTraceEventSource(_session!.SessionName, TraceEventSourceType.Session);
 
-                // Parser dinámico para el proveedor DNS Client
-                var parser = new DynamicTraceEventParser(source);
-                parser.AddDynamicProvider(DnsClientProvider, TraceEventLevel.Informational);
-
-                parser.All += (TraceEvent e) =>
+                // Parser dinámico: escucha TODO y filtramos en el handler
+                source.Dynamic.All += (TraceEvent e) =>
                 {
                     if (!_running) return;
 
-                    // En distintas builds el campo puede llamarse QueryName o HostName
+                    // En distintas builds puede ser QueryName o HostName
                     var qname = (e.PayloadByName("QueryName") as string)
                                 ?? (e.PayloadByName("HostName") as string)
                                 ?? string.Empty;
@@ -47,16 +44,10 @@ namespace PrivacyMeter.Desktop.Services
                     OnDns?.Invoke(DateTime.Now, e.ProcessID, qname.ToLowerInvariant());
                 };
 
-                _session.EnableProvider(DnsClientProvider);
+                // Habilita el proveedor DNS Client (nivel Informational, sin keywords específicos)
+                _session.EnableProvider(DnsClientProvider, TraceEventLevel.Informational, 0);
 
-                try
-                {
-                    source.Process(); // bloquea hasta Dispose()
-                }
-                catch
-                {
-                    // swallow al cerrar la sesión
-                }
+                try { source.Process(); } catch { /* se cierra al Dispose */ }
             });
         }
 
